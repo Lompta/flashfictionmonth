@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flash Fiction Month Navigator</title>
+    <meta charset="UTF-8"></meta>
+
+    <!--Libraries are imported through commonly used CDNs to improve load time.-->
+
+    <!--Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--Bootstrap 4.0 Beta-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <!--Font Awesome-->
+    <script src="https://use.fontawesome.com/a4cb6994c9.js"></script>
+
+    <!--Local dependencies.-->
+    <link rel="stylesheet" type="text/css" href="site.css"></link>
+    <script src="site.js"></script>
+  </head>
+
+  <body class="body-default-color" style="display: none;">
+    <div class="container default-color">
+      <!--Site Controls-->
+      <div class="row">
+        <div class="col-sm-12" id="controls-container">
+          <div class="card">
+            <div class="card-header" role="tab" id="controls-heading">
+              <a data-toggle="collapse" data-target="#controls" id="controls-toggle">
+                <h4>
+                  <i class="fa fa-plus" id="controls-plus" style="display: none;"></i>
+                  <i class="fa fa-minus" id="controls-minus"></i> Controls
+                </h4>
+              </a>
+            </div>
+            <div class="card-block collapse show" id="controls">
+              <div class="row">
+                <div class="col-sm-6">
+                  <h5>Playlist Selection</h5>
+                  <select class="custom-select" id="playlist-controls">
+                    <option selected id="playlist-all-days">All Days</option>
+                    <option id="playlist-recommended-days">Recommended Days</option>
+                    <option id="playlist-prime-days">Prime Numbered Days</option>
+                    <option id="playlist-random-days">8 Random Days</option>
+                  </select>
+
+                  <hr />
+
+                  <h5>Video Selection</h5>
+                  <select class="custom-select" id="video-selector">
+                    <option id="no-video-selected" selected>Select a video...</option>
+                  </select>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                  <h5>Display Options</h5>
+                  <div id="color-controls">
+                    <label>Site Color Scheme</label>
+                    <div>
+                      <input type="radio" name="color-scheme" id="default-color"> Default
+                    </div>
+                    <div>
+                      <input type="radio" name="color-scheme" id="night-color"> Night Mode
+                    </div>
+                    <div>
+                      <input type="radio" name="color-scheme" id="pastel-color"> Pastel Selects
+                    </div>
+                  </div>
+                  <div id="size-controls" class="d-none d-md-block">
+                    <!-- hr in containing div so it disappears when panel disappears -->
+                    <hr />
+                    <label>Player Size (larger screens only)</label>
+                    <div>
+                      <input type="radio" name="player-size" id="normal-player-size"> Normal
+                    </div>
+                    <div>
+                      <input type="radio" name="player-size" id="large-player-size"> Extra Large
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Video player-->
+      <div class="row align-items-center justify-content-center">
+        <!--Larger screen nav buttons-->
+        <div class="desktop-navigation col-sm-1 col-md-2 col-lg-3 d-none d-sm-block">
+          <span style="float: right;" class="prevBtn">
+            <i class="fa fa-3x fa-angle-left"></i>
+          </span>
+        </div>
+        <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 embed-responsive embed-responsive-16by9" id="youtube-embed-container">
+          <iframe id="youtube-embed-frame" class="embed-responsive-item" src="https://www.youtube.com/embed/rRl7ovh2zik" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="desktop-navigation col-sm-1 col-md-2 col-lg-3 d-none d-sm-block">
+          <span style="float: left;" class="nextBtn">
+            <i class="fa fa-3x fa-angle-right"></i>
+          </span>
+        </div>
+      </div>
+
+      <!--Smaller screen nav buttons (below video)-->
+      <div class="row align-items-center justify-content-center d-sm-none">
+        <div class="col-xs-6">
+          <span style="float: right; margin-right: 5px;" class="prevBtn">
+            <i class="fa fa-2x fa-angle-left"></i>
+          </span>
+        </div>
+        <div class="col-xs-6">
+          <span style="float: left; margin-left: 5px;" class="nextBtn">
+            <i class="fa fa-2x fa-angle-right"></i>
+          </span>
+        </div>
+      </div>
+
+      <!--Comment form-->
+      <div class="row" id="comment-form-row">
+        <div class="col-sm-12">
+          <div class="card">
+            <div class="card-header">
+              <a data-toggle="collapse" data-target="#comment-card" id="comment-toggle">
+                  <h4>
+                    <i class="fa fa-plus" id="comment-plus"></i>
+                    <i class="fa fa-minus" id="comment-minus" style="display: none;"></i> Leave a Comment...
+                  </h4>
+              </a>
+            </div>
+            <div class="card-block collapse" id="comment-card">
+
+              <div id="form-submitted-successfully" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
+                <button type="button" class="close" id="close-form-success-alert">
+                  <span>&times;</span>
+                </button>
+                Comment submitted successfully. Thank you!
+              </div>
+
+              <div class="col-sm-12">
+                <form id="feedback-form">
+                  <div class="form-group" id="name-form-group">
+                    <label for="feedback-name">Name*</label>
+                    <input class="form-control" type="text" id="feedback-name"></input>
+                    <div class="invalid-feedback"></div>
+                  </div>
+                  <div class="form-group" id="email-form-group">
+                    <label for="feedback-email">Email</label>
+                    <input class="form-control" type="text" id="feedback-email"></input>
+                    <div class="invalid-feedback"></div>
+                  </div>
+                  <div class="form-group" id="message-form-group">
+                    <label for="feedback-message">Message*</label>
+                    <textarea class="form-control" rows="6" id="feedback-message"></textarea>
+                    <div class="invalid-feedback"></div>
+                  </div>
+                  <button type="button" class="btn btn-primary pull-right" id="submit-button">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>

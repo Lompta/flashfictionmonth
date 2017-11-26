@@ -1,0 +1,86 @@
+/*Default color styles*/
+.body-default-color {
+  background-color: #A9A9A9;
+}
+
+.default-color {
+  color: black;
+  background-color: white;
+}
+
+/*Night mode styles*/
+.body-night-color {
+  background-color: #0B0719;
+}
+
+.night-color {
+  color: white;
+  background-color: black;
+}
+
+.night-color .card {
+  border: 1px solid white;
+  color: white;
+  background-color: black;
+}
+
+.night-color .card-header {
+  border-color: white;
+}
+
+.night-color hr {
+  border-color: white;
+}
+
+/*Pastel selects styles*/
+.body-pastel-color {
+  background-color: #FFE4E1
+}
+
+.pastel-color {
+  color: #8B8B83;
+  background-color: #E6E6FA;
+}
+
+.pastel-color .card {
+  color: #8B8B83;
+  background-color: #E6E6FA;
+}
+
+.pastel-color .card-header {
+  background-color: #FFF8DC
+}
+
+/*General page styles*/
+.card-block {
+  padding: 5px;
+}
+
+#controls-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.prevBtn {
+  color: blue;
+  cursor: pointer;
+}
+
+.nextBtn {
+  color: blue;
+  cursor: pointer;
+}
+
+#comment-form-row {
+  margin-top: 10px;
+  padding-bottom:10px;
+  margin-bottom: 20px;
+}
+
+#name-form-group {
+  margin-top: 5px;
+}
+
+#submit-button {
+  margin-bottom: 5px;
+}
