@@ -29,4 +29,4 @@ Having used it, I consider it an improvement over Bootstrap 3 and hope it comes 
 This site has been tested on recent versions of Internet Explorer, Chrome, Firefox, and Safari (on an iPad).
 
 ### Hosting
-This site is hosted at www.justisdevanmills.com/flashfictionmonth. The code is also hosted on my Github account, at https://github.com/Lompta.
+This site is hosted at www.justisdevanmills.com/flashfictionmonth. The code is also hosted on my Github account, at https://github.com/Lompta/flashfictionmonth.
